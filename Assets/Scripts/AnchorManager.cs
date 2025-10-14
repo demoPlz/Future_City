@@ -178,10 +178,10 @@ public class AnchorManager : MonoBehaviour
 
         GameObject currentGameObject = publicGameObjects[currentAnchorIndex];
 
-        // modelPosition = currentGameObject.transform.position;
-        // modelRotation = currentGameObject.transform.rotation;
-        modelPosition = mainCamera.transform.position;
-        modelRotation = mainCamera.transform.rotation; 
+        modelPosition = currentGameObject.transform.position;
+        modelRotation = currentGameObject.transform.rotation;
+        // modelPosition = mainCamera.transform.position;
+        // modelRotation = mainCamera.transform.rotation; 
         // 创建锚点
         var anchorPose = new Pose(modelPosition, modelRotation);
 

@@ -76,3 +76,4 @@ crashlytics-build.properties
 /output_building
 /output_book
 .DS_Store
+mono_crash.*

@@ -2855,7 +2855,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835279497}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.059795752, y: 0.2709858, z: -0.08250135, w: 0.95717543}
   m_LocalPosition: {x: 0, y: 0, z: -50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -2866,7 +2866,7 @@ RectTransform:
   - {fileID: 1433350906}
   - {fileID: 1889701424}
   m_Father: {fileID: 619207843}
-  m_LocalEulerAnglesHint: {x: 33, y: -33, z: 0}
+  m_LocalEulerAnglesHint: {x: -4, y: 32, z: -11}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -70, y: 66}
@@ -6511,7 +6511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1433350906
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7412,7 +7412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1889701424
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8097,16 +8097,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7161832767793813838, guid: 66d40221d132d04499855da9ce315f20, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 7413951098669478360, guid: 66d40221d132d04499855da9ce315f20, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6196651983581273976, guid: 66d40221d132d04499855da9ce315f20, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66d40221d132d04499855da9ce315f20, type: 3}
 --- !u!1001 &2144780404
 PrefabInstance:
@@ -8763,7 +8754,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchorManager: {fileID: 6164032327786921726}
-  publicGameObjects: []
+  publicGameObjects:
+  - {fileID: 348711818}
   modelPosition: {x: 0, y: 0, z: 0}
   modelRotation: {x: 0, y: 0, z: 0, w: 0}
   mainCamera: {fileID: 0}

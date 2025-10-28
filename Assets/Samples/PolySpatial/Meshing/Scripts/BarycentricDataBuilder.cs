@@ -1,4 +1,4 @@
-﻿// Based on: https://catlikecoding.com/unity/tutorials/advanced-rendering/flat-and-wireframe-shading/
+// Based on: https://catlikecoding.com/unity/tutorials/advanced-rendering/flat-and-wireframe-shading/
 using UnityEngine;
 
 namespace PolySpatial.Samples

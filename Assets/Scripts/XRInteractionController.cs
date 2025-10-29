@@ -293,7 +293,7 @@ public class XRInteractionController : MonoBehaviour
                                     -35.61f,
                                     5f,
                                     originalPosition.z
-                                        - spatialPointerState.deltaInteractionPosition.x
+                                        + spatialPointerState.deltaInteractionPosition.x
                                 );
                             }
                             break;
@@ -399,7 +399,7 @@ public class XRInteractionController : MonoBehaviour
                                 //             Touch.activeTouches[1]
                                 //         );
                                 selectedWindow.ScaleWindow(
-                                    spatialPointerState.deltaInteractionPosition.x
+                                    -spatialPointerState.deltaInteractionPosition.x
                                 );
                             }
                             break;
@@ -408,11 +408,9 @@ public class XRInteractionController : MonoBehaviour
                 case InteractionMode.FloorEditing:
                     switch (spatialPointerState.phase)
                     {
-                        case SpatialPointerPhase.Moved:
-                            if (spatialPointerState.deltaInteractionPosition.y > 1f)
-                                building.AddFloor();
-                            else if (spatialPointerState.deltaInteractionPosition.y < -1f)
-                                building.RemoveFloor();
+                        case SpatialPointerPhase.Cancelled:
+                        case SpatialPointerPhase.Ended:
+                            building.DanggleFloor();
                             break;
                         // case SpatialPointerPhase.Cancelled:
                         // case SpatialPointerPhase.Ended:

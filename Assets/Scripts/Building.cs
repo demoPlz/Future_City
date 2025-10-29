@@ -1,13 +1,16 @@
-using UnityEngine;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class Building : MonoBehaviour
 {
     [System.Serializable]
     public struct FloorWindowLayoutData
     {
-        public List<float> frontLayout, backLayout, leftLayout, rightLayout;
+        public List<float> frontLayout,
+            backLayout,
+            leftLayout,
+            rightLayout;
     }
 
     [System.Serializable]
@@ -17,13 +20,18 @@ public class Building : MonoBehaviour
         public List<FloorWindowLayoutData> floorLayouts;
     }
 
-    public float buildingLength, buildingWidth;
+    public float buildingLength,
+        buildingWidth;
 
     public Floor[] floors;
     public GameObject[] floorObjs;
     public GameObject[] plans;
     public int planIdx;
     public int floorNum;
+
+    public GameObject balconyObject;
+
+    public int floorEditIdx = 0;
 
     List<BuildingWindowLayoutData> savedLayoutDatas;
 
@@ -36,7 +44,8 @@ public class Building : MonoBehaviour
 
     public void SaveBuildingLayout(int slot)
     {
-        if (savedLayoutDatas == null) savedLayoutDatas = new List<BuildingWindowLayoutData>();
+        if (savedLayoutDatas == null)
+            savedLayoutDatas = new List<BuildingWindowLayoutData>();
 
         for (int i = 0; i < savedLayoutDatas.Count; i++)
         {
@@ -50,22 +59,30 @@ public class Building : MonoBehaviour
                     floorLayout.frontLayout = new List<float>();
                     foreach (Window w in f.layout.frontWindows)
                     {
-                        floorLayout.frontLayout.Add(w.gameObject.transform.localPosition.z / buildingLength + .5f);
+                        floorLayout.frontLayout.Add(
+                            w.gameObject.transform.localPosition.z / buildingLength + .5f
+                        );
                     }
                     floorLayout.backLayout = new List<float>();
                     foreach (Window w in f.layout.backWindows)
                     {
-                        floorLayout.backLayout.Add(w.gameObject.transform.localPosition.z / buildingLength + .5f);
+                        floorLayout.backLayout.Add(
+                            w.gameObject.transform.localPosition.z / buildingLength + .5f
+                        );
                     }
                     floorLayout.leftLayout = new List<float>();
                     foreach (Window w in f.layout.leftWindows)
                     {
-                        floorLayout.leftLayout.Add(w.gameObject.transform.localPosition.x / buildingWidth + .5f);
+                        floorLayout.leftLayout.Add(
+                            w.gameObject.transform.localPosition.x / buildingWidth + .5f
+                        );
                     }
                     floorLayout.rightLayout = new List<float>();
                     foreach (Window w in f.layout.rightWindows)
                     {
-                        floorLayout.rightLayout.Add(w.gameObject.transform.localPosition.x / buildingWidth + .5f);
+                        floorLayout.rightLayout.Add(
+                            w.gameObject.transform.localPosition.x / buildingWidth + .5f
+                        );
                     }
                 }
 
@@ -82,22 +99,30 @@ public class Building : MonoBehaviour
             floorLayout.frontLayout = new List<float>();
             foreach (Window w in f.layout.frontWindows)
             {
-                floorLayout.frontLayout.Add(w.gameObject.transform.localPosition.z / buildingLength + .5f);
+                floorLayout.frontLayout.Add(
+                    w.gameObject.transform.localPosition.z / buildingLength + .5f
+                );
             }
             floorLayout.backLayout = new List<float>();
             foreach (Window w in f.layout.backWindows)
             {
-                floorLayout.backLayout.Add(w.gameObject.transform.localPosition.z / buildingLength + .5f);
+                floorLayout.backLayout.Add(
+                    w.gameObject.transform.localPosition.z / buildingLength + .5f
+                );
             }
             floorLayout.leftLayout = new List<float>();
             foreach (Window w in f.layout.leftWindows)
             {
-                floorLayout.leftLayout.Add(w.gameObject.transform.localPosition.x / buildingWidth + .5f);
+                floorLayout.leftLayout.Add(
+                    w.gameObject.transform.localPosition.x / buildingWidth + .5f
+                );
             }
             floorLayout.rightLayout = new List<float>();
             foreach (Window w in f.layout.rightWindows)
             {
-                floorLayout.rightLayout.Add(w.gameObject.transform.localPosition.x / buildingWidth + .5f);
+                floorLayout.rightLayout.Add(
+                    w.gameObject.transform.localPosition.x / buildingWidth + .5f
+                );
             }
 
             newLayout.floorLayouts.Add(floorLayout);
@@ -140,7 +165,8 @@ public class Building : MonoBehaviour
     {
         plans[planIdx].SetActive(false);
         planIdx++;
-        if (planIdx == plans.Length) planIdx = 0;
+        if (planIdx == plans.Length)
+            planIdx = 0;
         plans[planIdx].SetActive(true);
     }
 
@@ -148,44 +174,66 @@ public class Building : MonoBehaviour
     {
         plans[planIdx].SetActive(false);
         planIdx--;
-        if (planIdx == -1) planIdx = plans.Length - 1;
+        if (planIdx == -1)
+            planIdx = plans.Length - 1;
         plans[planIdx].SetActive(true);
     }
 
-    public void ClearPlan(){
+    public void ClearPlan()
+    {
         plans[planIdx].SetActive(false);
         planIdx = 0;
         plans[planIdx].SetActive(true);
     }
 
-    public void SetPlanTwo(){
+    public void SetPlanTwo()
+    {
         plans[planIdx].SetActive(false);
         planIdx = 1;
         plans[planIdx].SetActive(true);
     }
 
-    public void SetPlanThree(){
+    public void SetPlanThree()
+    {
         plans[planIdx].SetActive(false);
         planIdx = 2;
         plans[planIdx].SetActive(true);
     }
 
-    public void SetPlanFour(){
+    public void SetPlanFour()
+    {
         plans[planIdx].SetActive(false);
         planIdx = 3;
         plans[planIdx].SetActive(true);
     }
 
-    public void SetPlanFive(){
+    public void SetPlanFive()
+    {
         plans[planIdx].SetActive(false);
         planIdx = 4;
         plans[planIdx].SetActive(true);
     }
+
     public void SwitchPlan(int idx)
     {
         plans[planIdx].SetActive(false);
         planIdx = idx;
         plans[planIdx].SetActive(true);
+    }
+
+    public void DanggleFloor()
+    {
+        int[] floorNumArray = new int[4 * 2 + 1 + 2];
+        floorNumArray = new int[] { 4, 4, 3, 2, 1, 0, 1, 2, 3, 4, 4 };
+        for (int i = 0; i < floorNumArray[floorEditIdx % floorNumArray.Length]; i++)
+        {
+            floorObjs[i].SetActive(true);
+        }
+        for (int i = floorNumArray[floorEditIdx % floorNumArray.Length]; i < 4; i++)
+        {
+            floorObjs[i].SetActive(false);
+        }
+        floorEditIdx++;
     }
 
     public void AddFloor()
@@ -195,7 +243,7 @@ public class Building : MonoBehaviour
         for (int i = 0; i < Mathf.Min(4, floorNum); i++)
         {
             floorObjs[i].SetActive(true);
-        }    
+        }
     }
 
     public void RemoveFloor()
@@ -236,5 +284,10 @@ public class Building : MonoBehaviour
         }
 
         SetWindowsPattern(floorToModify, patterns.ToArray());
+    }
+
+    public void ToggleOnBalcony()
+    {
+        balconyObject.SetActive(!balconyObject.activeSelf);
     }
 }

@@ -204,6 +204,16 @@ public class XRInteractionController : MonoBehaviour
             switch (mode)
             {
                 case InteractionMode.Idle:
+                    switch (spatialPointerState.phase)
+                    {
+                        case SpatialPointerPhase.Ended:
+                        case SpatialPointerPhase.Cancelled:
+                            if (spatialPointerState.targetObject != null)
+                            {
+                                building.ClearPlan();
+                            }
+                            break;
+                    }
                     break;
                 case InteractionMode.WindowAddition:
                     switch (spatialPointerState.phase)
@@ -368,47 +378,29 @@ public class XRInteractionController : MonoBehaviour
                                 spatialPointerState.targetObject.transform.parent.GetComponent<Window>()
                             )
                             {
-                                if (Touch.activeTouches.Count == 1)
-                                {
-                                    Vector3 originalPosition = selectedWindow
-                                        .gameObject
-                                        .transform
-                                        .localPosition;
-                                    selectedWindow.gameObject.transform.localPosition = new Vector3(
-                                        -35.61f,
-                                        5f,
-                                        originalPosition.z
-                                            - spatialPointerState.deltaInteractionPosition.x
-                                    );
-                                }
+                                // if (Touch.activeTouches.Count == 1)
+                                // {
+                                //     Vector3 originalPosition = selectedWindow
+                                //         .gameObject
+                                //         .transform
+                                //         .localPosition;
+                                //     selectedWindow.gameObject.transform.localPosition = new Vector3(
+                                //         -35.61f,
+                                //         5f,
+                                //         originalPosition.z
+                                //             - spatialPointerState.deltaInteractionPosition.x
+                                //     );
+                                // }
                                 // @Carton need adjustments for the parameters here
-                                if (Touch.activeTouches.Count > 1)
-                                {
-                                    var secondSpatialPointerState =
-                                        EnhancedSpatialPointerSupport.GetPointerState(
-                                            Touch.activeTouches[1]
-                                        );
-                                    selectedWindow.ScaleWindow(
-                                        -secondSpatialPointerState.deltaInteractionPosition.x
-                                    );
-                                }
-                            }
-                            break;
-
-                        case SpatialPointerPhase.Ended:
-                        case SpatialPointerPhase.Cancelled:
-                            if (
-                                spatialPointerState.targetObject.transform.parent.GetComponent<Window>()
-                            )
-                            {
-                                if (selectedWindow && pendingMergedWindow)
-                                {
-                                    selectedWindow.floor.MergeWindow(
-                                        selectedWindow,
-                                        pendingMergedWindow
-                                    );
-                                }
-                                selectedWindow = null;
+                                // if (Touch.activeTouches.Count == 1)
+                                // {
+                                //     var secondSpatialPointerState =
+                                //         EnhancedSpatialPointerSupport.GetPointerState(
+                                //             Touch.activeTouches[1]
+                                //         );
+                                selectedWindow.ScaleWindow(
+                                    spatialPointerState.deltaInteractionPosition.x
+                                );
                             }
                             break;
                     }
@@ -417,9 +409,9 @@ public class XRInteractionController : MonoBehaviour
                     switch (spatialPointerState.phase)
                     {
                         case SpatialPointerPhase.Moved:
-                            if (spatialPointerState.deltaInteractionPosition.y > 5f)
+                            if (spatialPointerState.deltaInteractionPosition.y > 1f)
                                 building.AddFloor();
-                            else if (spatialPointerState.deltaInteractionPosition.y < -5f)
+                            else if (spatialPointerState.deltaInteractionPosition.y < -1f)
                                 building.RemoveFloor();
                             break;
                         // case SpatialPointerPhase.Cancelled:
@@ -432,17 +424,17 @@ public class XRInteractionController : MonoBehaviour
                     }
                     break;
                 case InteractionMode.FacadeEditing:
-                    switch (spatialPointerState.phase)
-                    {
-                        case SpatialPointerPhase.Cancelled:
-                        case SpatialPointerPhase.Ended:
-                            if (building)
-                            {
-                                // @Carton
-                                building.SwitchUpPlan();
-                            }
-                            break;
-                    }
+                    // switch (spatialPointerState.phase)
+                    // {
+                    //     case SpatialPointerPhase.Cancelled:
+                    //     case SpatialPointerPhase.Ended:
+                    //         if (building)
+                    //         {
+                    //             // @Carton
+                    //             building.SwitchUpPlan();
+                    //         }
+                    //         break;
+                    // }
                     break;
                 default:
                     break;

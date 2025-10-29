@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class Building : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class Building : MonoBehaviour
     {
         floorNum = 4;
         SaveBuildingLayout(0);
+        //LoadBuildingLayoutFromFile();
     }
 
     public void SaveBuildingLayout(int slot)
@@ -104,6 +106,18 @@ public class Building : MonoBehaviour
         savedLayoutDatas.Add(newLayout);
     }
 
+    public void LoadBuildingLayoutFromFile()
+    {
+        string s = System.IO.File.ReadAllText(Application.dataPath + "/layoutData.json");
+        Debug.Log(s);
+        BuildingWindowLayoutData layoutData = JsonUtility.FromJson<BuildingWindowLayoutData>(s);
+        for (int i = 0; i < layoutData.floorLayouts.Count; i++)
+        {
+            Debug.Log(i);
+            SetWindowsPattern(i, layoutData.floorLayouts[i].frontLayout.ToArray());
+        }
+    }
+
     public void LoadBuildingLayout(int slot)
     {
         for (int i = 0; i < savedLayoutDatas.Count; i++)
@@ -138,7 +152,7 @@ public class Building : MonoBehaviour
         plans[planIdx].SetActive(true);
     }
 
-    public void SetPlanOne(){
+    public void ClearPlan(){
         plans[planIdx].SetActive(false);
         planIdx = 0;
         plans[planIdx].SetActive(true);

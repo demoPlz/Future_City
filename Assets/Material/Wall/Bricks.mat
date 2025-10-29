@@ -37,7 +37,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Bricks
-  m_Shader: {fileID: -6465566751694194690, guid: 4ada3a87c881045dba58bc71a10d99eb, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 227e9a55f20c94eeda1bf5b84d4b82d2, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -195,6 +195,7 @@ Material:
     - _BUILTIN_QueueOffset: 0
     - _Blend: 1
     - _BlendMode: 0
+    - _BumpScale: 5
     - _CoatMask: 0
     - _ConservativeDepthOffsetEnable: 0
     - _CullMode: 2
@@ -264,7 +265,7 @@ Material:
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
     - _Rotation: 90
-    - _Scale: 0.1
+    - _Scale: 0.3
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
@@ -289,6 +290,7 @@ Material:
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
     - _Tile: 0.2
+    - _Tiling: 0.4
     - _TransmissionEnable: 1
     - _TransmissionMask: 1
     - _TransparentBackfaceEnable: 0

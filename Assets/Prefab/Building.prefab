@@ -1731,7 +1731,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2049833872220265746
 Transform:
   m_ObjectHideFlags: 0
@@ -12148,6 +12148,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 105fd32e9124f4aabb65f5338fda1626, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f869beb01525441ebb362fd90f8a4e22, type: 2}
     - target: {fileID: 919132149155446097, guid: 105fd32e9124f4aabb65f5338fda1626, type: 3}
       propertyPath: m_Name
       value: Corten Steel Fins
@@ -12220,7 +12224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5228125284558684369, guid: 44d9d2fa2545c124e81bc97011135655, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12364,7 +12368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5228125284558684369, guid: 44d9d2fa2545c124e81bc97011135655, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -12456,6 +12460,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: f8ef1d5d9b53e4c7d86a4644cab37027, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b291d050e2b674fcfa9575ce02dfeb8a, type: 2}
     - target: {fileID: 919132149155446097, guid: f8ef1d5d9b53e4c7d86a4644cab37027, type: 3}
       propertyPath: m_Name
       value: Perforated Steel
@@ -12522,6 +12530,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 18a2b8be2bf2142d6b1bd25080a84e42, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f39bdd94977f44444bc274bc247ad04d, type: 2}
     - target: {fileID: 919132149155446097, guid: 18a2b8be2bf2142d6b1bd25080a84e42, type: 3}
       propertyPath: m_Name
       value: FlutedConcretePanels
@@ -12594,7 +12606,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5228125284558684369, guid: 44d9d2fa2545c124e81bc97011135655, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -12686,6 +12698,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 8b5155ab6401ba741b81e62751131d31, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c6459689b99cf49bdaf82035b66bfbe5, type: 2}
     - target: {fileID: 919132149155446097, guid: 8b5155ab6401ba741b81e62751131d31, type: 3}
       propertyPath: m_Name
       value: Steel Panel Balconies
@@ -12752,6 +12768,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 25d15a1ee648941aa9af080f6ee672b4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cefbe1d7c7d6f4f27807dc9b34e241e2, type: 2}
     - target: {fileID: 919132149155446097, guid: 25d15a1ee648941aa9af080f6ee672b4, type: 3}
       propertyPath: m_Name
       value: Wood Louvers

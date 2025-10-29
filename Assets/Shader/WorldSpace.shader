@@ -76,7 +76,7 @@ Shader "Custom/WorldSpace"
                 float3 bump = nxProj * blend.x * _BumpScale + nyProj * blend.y * _BumpScale + nzProj * blend.z * _BumpScale;
 
                 Light light = GetMainLight();
-                float s = saturate(dot(normalize(bump + n), normalize(light.direction)));
+                float s = saturate(dot(normalize(n), normalize(light.direction)));
 
                 return float4(col * s, 1.0);
             }

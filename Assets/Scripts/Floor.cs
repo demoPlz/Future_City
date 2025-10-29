@@ -24,6 +24,8 @@ public class Floor : MonoBehaviour
 
     public WindowLayout layout;
 
+    public GameObject plan1, plan2, plan3;
+
     GameObject currentPlan;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -180,4 +182,49 @@ public class Floor : MonoBehaviour
         a.gameObject.transform.localPosition = new Vector3(-35.51f, 5f, Mathf.Clamp((a.gameObject.transform.localPosition + pos).z / 2f, -55f + a.width / 2f, 55f - a.width / 2f));
         a.ScaleWindowLocal(width);
     }
+
+    public void TurnOnWindowsPlan1()
+    {
+        plan2.SetActive(false);
+        plan3.SetActive(false);
+        plan1.SetActive(true);
+        
+        // Find and deactivate all child objects named "Windows(cloned)"
+        foreach (Transform child in transform)
+        {
+            if (child.name == "Window(Clone)")
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void TurnOnWindowsPlan2()
+    {
+        plan1.SetActive(false);
+        plan3.SetActive(false);
+        plan2.SetActive(true);
+        foreach (Transform child in transform)
+        {
+            if (child.name == "Window(Clone)")
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void TurnOnWindowsPlan3()
+    {
+        plan1.SetActive(false);
+        plan2.SetActive(false);
+        plan3.SetActive(true);
+        foreach (Transform child in transform)
+        {
+            if (child.name == "Window(Clone)")
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+    }
+    
 }
